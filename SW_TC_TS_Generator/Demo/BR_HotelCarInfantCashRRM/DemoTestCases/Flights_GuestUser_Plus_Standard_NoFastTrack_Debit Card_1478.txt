@@ -1,0 +1,23 @@
+Navigate to Home Page
+I verify Home Page is loaded successfully
+When I want to book a [Flights]
+When I login as [GuestUser]
+When I want to book a [Return] flight
+When I select Passenger type as [Teen]
+When I enter Origin airport code as [Dublin]
+When I enter Destination airport code as [London Stansted]
+When I select depature date as [09/12/2019]
+When I select my return date as [12/12/2019]
+When I want to make booking using [Dollars]
+When I select [OneStop] flight from select flight page
+When I want to select cabin in class as [Plus] for Inbound
+I click on Search button using in flight select page
+Select senior fare for OutBound if required
+Select senior fare for InBound if required
+I click on Submit in Senior Fare page if required
+I verify Price Page is displayed
+I click Submit in Price Page and continue to purchase Page
+I verify Purchase Page is displayed
+When I want to select cabin out class as [Standard] for outbound
+When to select [NoFastTrack] option in purchase page
+When I fill payment details in purchase page using [Debit Card]

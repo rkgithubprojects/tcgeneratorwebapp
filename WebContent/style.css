@@ -1,0 +1,242 @@
+body {
+	font-family:"Calibri";
+	font-size: 0.78em;
+	widtht:100%;
+	margin: 0;
+	padding: 0;
+	color: #000000;
+}
+
+
+#top {
+
+	background: url("bg.jpg");
+	height: 100px;
+
+}
+
+#slogan{
+top:0px;
+left:10px;
+position:absolute;
+color:#fff;
+font-weight:Normal;
+font-family:Times;
+font-size:40px;
+}
+
+#xxx{
+text-align:right;
+color:#FF000;
+}
+
+
+#menu {
+	background-color: #071B31;
+	font-size: 16px;
+	font-weight:bold;
+	text-align:right;
+	padding-right:10px;
+}
+#menu ul {
+	padding: 3px;
+	margin: 0;
+}
+#menu li {
+	list-style-type: none;
+	display: inline;
+	
+}
+#menu li a {
+	padding: 3px;
+	color: #fff;
+	text-decoration: none;
+}
+#menu li a:hover {
+	background-color: #ffffff;
+	padding: 3px;
+	color: #071B31;
+	text-decoration: none;
+}
+#main {
+	padding: 10px;
+	letter-spacing: .1em;
+	width: 97%;
+	font-family:Tahoma;
+}
+#main a {
+	color: #496f9c;
+	text-decoration: none;
+	font-weight: bold;
+}
+#main a:hover {
+	color: #1c2a3b;
+	text-decoration: none;
+}
+#main .title {
+	font-size: 2em;
+	color: #071B31;
+	font-family:Georgia;
+}
+#main .text {
+	margin: .5em;
+	text-align: justify;
+}
+#main .footie {
+	font-size: 0.75em;
+	text-align: justify;
+	text-align: right;
+	border-bottom: 1px dashed #5e6d84;
+	margin-bottom: 1em;
+	padding-bottom: 1em;
+}
+#side {
+	padding: 5px;
+	margin: 5px;
+	width: 160px;
+}
+#side .text {
+	padding: 5px;
+	margin: 5px;
+	border: 1px solid #adadad;
+	background-color: #ededed;
+}
+#side .text:hover {
+	background-color: #fafafa;
+}
+#side a {
+	color: #496f9c;
+	text-decoration: none;
+}
+#side a:hover {
+	color: #1c2a3b;
+	text-decoration: none;
+}
+#footer {
+	clear: both;
+	font-size: .75em;
+	border-top: 1px dotted #696969;
+	padding: 5px;
+	background-color: #ededed;
+}
+#footer a {
+	color: #496f9c;
+	text-decoration: none;
+}
+#footer a:hover {
+	color: #1c2a3b;
+	text-decoration: none;
+}
+#footer .left {
+	text-align: left;
+	float: left;
+}
+#footer .right {
+	text-align: right;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 1px 10px;
+    background-color: #3366ff;
+    color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+    padding: 2px 14px;
+    background-color: #3366ff;
+    color: white;
+}

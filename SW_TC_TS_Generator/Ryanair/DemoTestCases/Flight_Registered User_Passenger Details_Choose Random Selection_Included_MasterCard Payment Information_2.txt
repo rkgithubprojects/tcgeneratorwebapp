@@ -1,0 +1,19 @@
+Launch browser and navigate to home page
+Verify that home page is loaded successfully
+When I want to book a [Flight] ticket
+When I want to login as [Registered User]
+When I want to book a [OneWay] flight ticket
+When I want to enter departure code as [Dublin]
+When I want to enter destination airport code as [London Stansted]
+When I want to click on [Continue Button]?to enter departure date
+When I select depature date as [12/12/2019]  from now
+When I want to click on [TermsOfUse CheckBox]
+When I select passenger type as [Adult] to continue flights information page
+When I select a flight with [Standard] fare
+I verify that [Standard Fare Details] of selected flight is loaded successfully
+When I want to continue booking a flight ticket with [Standard Fare]
+I verify that [Passenger Information Page] is loaded successfully
+When I want to enter [Passenger Details] in passenger information page
+When I want to click on [Choose Random Selection]  button in seats selection page and continue to cabin bags selection page
+When I want to select [Included] option in cabin bag selection page and continue to payment iformation page
+When I want to enter [MasterCard Payment Information] in payment informion page and book ticket
