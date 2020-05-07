@@ -100,7 +100,11 @@ public class UtilitiesClass {
 			File srcFile=scr.getScreenshotAs(OutputType.FILE);
 			scrName="SCR_"+dateFormat.format(date)+".png";
 			String projectDirectory = props.get("ProjectDirectory");
-			FileUtils.copyFile(srcFile, new File(projectDirectory+"/Output/Reports/"+scrName));
+			if(props.get("OS").equals("MacOS")){
+				FileUtils.copyFile(srcFile, new File(projectDirectory+"/Output/Reports/"+scrName));
+			}else {
+				FileUtils.copyFile(srcFile, new File(projectDirectory+"\\Output\\Reports\\"+scrName));
+			}
 												 
 		} catch (Exception e) {
 			e.printStackTrace();

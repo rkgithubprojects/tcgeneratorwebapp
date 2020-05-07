@@ -31,8 +31,11 @@ public class BusinessRulesSupport extends UtilitiesClass {
 		Map<Integer, List<String>> rules=new HashMap<>();
 		try
 		{
-				// filePath="C:\\ABC\\Output\\TestDataFiles\\BusinessRules.xlsx";
+			if(props.get("OS").equals("MacOS")){
 				 filePath=session.getAttribute("modulePath")+"/BusinessRules.xlsx";
+			}else {
+				filePath=session.getAttribute("modulePath")+"\\BusinessRules.xlsx";
+			}
 				File readFile=new File(filePath);
 			if(readFile!=null)
 			{
@@ -94,8 +97,13 @@ public class BusinessRulesSupport extends UtilitiesClass {
 		{
 			String sheetName="Sheet1";
 			readWorBook = new XSSFWorkbook();
-			//File testCaseFile = new File("C:\\ABC\\Output\\TestDataFiles\\BusinessRules.xlsx");
-			File testCaseFile = new File(session.getAttribute("modulePath")+"/BusinessRules.xlsx");
+			File testCaseFile = null;
+			if(props.get("OS").equals("MacOS")){
+			testCaseFile = new File(session.getAttribute("modulePath")+"/BusinessRules.xlsx");
+			}
+			else {
+				testCaseFile = new File(session.getAttribute("modulePath")+"\\BusinessRules.xlsx");
+			}
 			tcOutputStream = new FileOutputStream(testCaseFile);
 			readSheet = readWorBook.createSheet(sheetName);
 			

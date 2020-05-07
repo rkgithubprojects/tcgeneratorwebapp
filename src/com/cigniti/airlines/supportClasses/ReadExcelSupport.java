@@ -29,13 +29,17 @@ public class ReadExcelSupport extends UtilitiesClass{
 		List<HtmlData> list=new ArrayList<>();
 		Workbook readWorBook =null;
 		Sheet readSheet =null;
-		//File readFile=new File("C:\\ABC\\Output\\TestDataFiles\\Scenarios.xlsx");
 		String modulePath=(String) session.getAttribute("modulePath");
 		String moduleName=(String) session.getAttribute("moduleName");
 		String generateTC=(String) session.getAttribute("generateTC");
 		String generateTS=(String) session.getAttribute("generateTS");
-		
-		File readFile=new File(modulePath+"/Scenarios.xlsx");
+		File readFile = null;
+		if(props.get("OS").equals("MacOS")){
+			readFile=new File(modulePath+"/Scenarios.xlsx");
+		}
+		else {
+			readFile=new File(modulePath+"\\Scenarios.xlsx");
+		}
 		if(readFile!=null)
 		{
 			InputStream inputStream = new FileInputStream(readFile);

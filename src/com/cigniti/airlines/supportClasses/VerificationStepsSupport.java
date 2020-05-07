@@ -31,8 +31,12 @@ public class VerificationStepsSupport extends UtilitiesClass{
 		List<HtmlData> list=new ArrayList<>();
 		Workbook readWorBook =null;
 		Sheet readSheet =null;
-		//File readFile=new File("C:\\ABC\\Output\\TestDataFiles\\StaticSteps.xlsx");
-		File readFile=new File(session.getAttribute("modulePath")+"/StaticSteps.xlsx");
+		File readFile=null;
+		if(props.get("OS").equals("MacOS")){
+		readFile=new File(session.getAttribute("modulePath")+"/StaticSteps.xlsx");
+		}else {
+			readFile=new File(session.getAttribute("modulePath")+"\\StaticSteps.xlsx");
+		}
 		if(readFile!=null)
 		{
 			InputStream inputStream = new FileInputStream(readFile);
@@ -86,8 +90,12 @@ public class VerificationStepsSupport extends UtilitiesClass{
 			
 			String sheetName="Sheet1";
 			tcWorkbook = new XSSFWorkbook();
-			//File testCaseFile = new File("C:\\ABC\\Output\\TestDataFiles\\StaticSteps.xlsx");
-			File testCaseFile=new File(session.getAttribute("modulePath")+"/StaticSteps.xlsx");
+			File testCaseFile=null;
+			if(props.get("OS").equals("MacOS")){
+			testCaseFile=new File(session.getAttribute("modulePath")+"/StaticSteps.xlsx");
+			}else {
+				testCaseFile=new File(session.getAttribute("modulePath")+"\\StaticSteps.xlsx");
+			}
 			tcOutputStream = new FileOutputStream(testCaseFile);
 			Sheet tcOutsheet = tcWorkbook.createSheet(sheetName);
 			Row row=null;

@@ -31,7 +31,14 @@ public class ReadStaticSteps extends UtilitiesClass{
 		Map<String, List<TestData>> staticData = new HashMap<>();
 
 		try {
-			inputFile = new File(session.getAttribute("modulePath")+"/StaticSteps.xlsx");
+			if(props.get("OS").equals("MacOS"))
+			{
+				inputFile = new File(session.getAttribute("modulePath")+"/StaticSteps.xlsx");
+			}
+			else {
+				inputFile = new File(session.getAttribute("modulePath")+"\\StaticSteps.xlsx");
+			}
+			
 			inputStream = new FileInputStream(inputFile);
 			readWorBook = new XSSFWorkbook(inputStream);
 			Sheet readSheet = readWorBook.getSheet("Sheet1");

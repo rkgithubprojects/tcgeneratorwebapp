@@ -35,7 +35,12 @@ public class ReadTestData extends UtilitiesClass {
 		Map<String, List<TestData>> testData = new HashMap<>();
 
 		try {
-			inputFile = new File(session.getAttribute("modulePath")+"/TestData.xlsx");
+			if(props.get("OS").equals("MacOS")){
+				inputFile = new File(session.getAttribute("modulePath")+"/TestData.xlsx");
+			}
+			else {
+				inputFile = new File(session.getAttribute("modulePath")+"\\TestData.xlsx");	
+			}
 			inputStream = new FileInputStream(inputFile);
 			readWorBook = new XSSFWorkbook(inputStream);
 			Sheet dataSheet = readWorBook.getSheet("Sheet1");

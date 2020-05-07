@@ -26,9 +26,11 @@ public class DeleteModuleServlet extends HttpServlet {
 		boolean result = false;
 		try {
 			String moduleData = request.getParameter("moduleData").replace("'\'", "'\\'");
+			System.out.println("moduleData>>>>>>" + moduleData);
 			String newModulePath = moduleData.split("##")[0];
+			System.out.println("newModulePath>>>>>>" + newModulePath);
 			String moduleName = moduleData.split("##")[1];
-
+			System.out.println("moduleName>>>>>>" + moduleName);
 			File directory = new File(newModulePath);
 
 			if (!directory.exists()) {

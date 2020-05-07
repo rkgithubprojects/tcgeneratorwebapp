@@ -20,9 +20,13 @@ public class GenerateReports extends BaseClass{
 			int passCount=0;
 			int failCount=0;
 			//int totalCount=passCount+failCount;
-			File file = new File(projectDirectory+"/Output/Reports/SummaryReports.html");
+			File file = null;
+			if(props.get("OS").equals("MacOS")){
+				file = new File(projectDirectory+"/Output/Reports/SummaryReports.html");
+			}else {
+				file = new File(projectDirectory+"\\Output\\Reports\\SummaryReports.html");
+			}
 			
-
 			writer = new FileWriter(file, false);
 			writer.write("<html><head><style>table, th, td {border-collapse: collapse; border: 1px solid black;}</style><body bgcolor='#ffffff'>");
 			writer.write("<center>");
@@ -138,9 +142,13 @@ public class GenerateReports extends BaseClass{
 			Writer writer = null;
 			
 			int count=0;
-
-			File file = new File(projectDirectory+"/Output/Reports/"+reportName+".html");
-		
+			File file = null;
+			if(props.get("OS").equals("MacOS")){
+			file = new File(projectDirectory+"/Output/Reports/"+reportName+".html");
+			}
+			else {
+				file = new File(projectDirectory+"\\Output\\Reports\\"+reportName+".html");
+			}
 			writer = new FileWriter(file, false);
 			writer.write("<html><head><style>table, th, td {border-collapse: collapse;border: 1px solid black;}</style><body bgcolor='#ffffff'>");
 			writer.write("<center>");

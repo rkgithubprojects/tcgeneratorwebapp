@@ -30,8 +30,12 @@ public class TestDataSupport extends UtilitiesClass{
 		List<HtmlData> list=new ArrayList<>();
 		Workbook readWorBook =null;
 		Sheet readSheet =null;
-		//File readFile=new File("C:\\ABC\\Output\\TestDataFiles\\TestData.xlsx");
-		File readFile=new File(session.getAttribute("modulePath")+"/TestData.xlsx");
+		File readFile = null;
+		if(props.get("OS").equals("MacOS")){
+		readFile = new File(session.getAttribute("modulePath")+"/TestData.xlsx");
+		}else {
+			readFile = new File(session.getAttribute("modulePath")+"\\TestData.xlsx");
+		}
 		if(readFile!=null)
 		{
 			InputStream inputStream = new FileInputStream(readFile);
@@ -58,8 +62,7 @@ public class TestDataSupport extends UtilitiesClass{
 
 				String feature=(row.getCell(0).getStringCellValue()==null)?(""):(row.getCell(0).getStringCellValue());
 			
-				
-				/*String statement=(row.getCell(1).getStringCellValue()==null)?(""):(row.getCell(1).getStringCellValue());*/
+			
 				String statement=row.getCell(2).getStringCellValue();
 				hd.setFeature(feature);
 				
@@ -106,8 +109,12 @@ public class TestDataSupport extends UtilitiesClass{
 
 			String sheetName="Sheet1";
 			tcWorkbook = new XSSFWorkbook();
-			//File testCaseFile = new File("C:\\ABC\\Output\\TestDataFiles\\TestData.xlsx");
-			File testCaseFile=new File(session.getAttribute("modulePath")+"/TestData.xlsx");
+			File testCaseFile = null;
+			if(props.get("OS").equals("MacOS")){
+			testCaseFile=new File(session.getAttribute("modulePath")+"/TestData.xlsx");
+			}else {
+				testCaseFile=new File(session.getAttribute("modulePath")+"\\TestData.xlsx");	
+			}
 			tcOutputStream = new FileOutputStream(testCaseFile);
 			Sheet tcOutsheet = tcWorkbook.createSheet(sheetName);
 			Row row=null;

@@ -21,9 +21,13 @@ public class PropertiesSupport extends UtilitiesClass {
 		PrintWriter writer=null;
 		try {
 			String projectDirectory=propData.get("ProjectDirectory");
-					//"C:\\ABC\\TCgenerator";
-					//System.getProperty("user.dir").replace("'\'", "'\\'");
-			String filePath=projectDirectory+"/src/"+fileName+".properties";
+			String filePath = null;
+			if(props.get("OS").equals("MacOS")){
+			filePath=projectDirectory+"/src/"+fileName+".properties";
+			}
+			else {
+				filePath=projectDirectory+"\\src\\"+fileName+".properties";
+			}
 			writer = new PrintWriter(filePath, "UTF-8");
 			for (String key : props.keySet()) {
 				writer.println(key + "=" + props.get(key));
@@ -44,9 +48,14 @@ public class PropertiesSupport extends UtilitiesClass {
 		Map<String,String> lprops=new LinkedHashMap<>();
 		try
 		{
-			String projectDirectory=propData.get("ProjectDirectory");//"C:\\ABC\\TCgenerator";
-					//System.getProperty("user.dir").replace("'\'", "'\\'");
-			String filePath=projectDirectory+"/src/"+fileName+".properties";
+			String projectDirectory=propData.get("ProjectDirectory");
+			String filePath = null;
+			if(props.get("OS").equals("MacOS")){
+			filePath=projectDirectory+"/src/"+fileName+".properties";
+			}
+			else {
+				filePath=projectDirectory+"\\src\\"+fileName+".properties";
+			}
 			BufferedReader in = new BufferedReader(new FileReader(filePath));
 			String str;
 

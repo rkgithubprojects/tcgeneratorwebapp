@@ -41,9 +41,12 @@ public class TestReports extends BaseClass{
 	public void generateReport(Set<String> links) throws IOException
 	{
 		Writer writer = null;
-		
-		File file = new File(projectDirectory+"/Output/Reports/TestReports.html");
-
+		File file = null;
+		if(props.get("OS").equals("MacOS")){
+		file = new File(projectDirectory+"/Output/Reports/TestReports.html");
+		}else {
+			file = new File(projectDirectory+"\\Output\\Reports\\TesﬂtReports.html");
+		}
 		writer = new FileWriter(file, false);
 		
 		writer.write("<html>");
@@ -60,7 +63,11 @@ public class TestReports extends BaseClass{
 			i=i+1;
 			writer.write("<tr>");
 			writer.write("<td>"+i+"</td>");
+			if(props.get("OS").equals("MacOS")){
 			writer.write("<td><a href='" + projectDirectory + "/Output/Reports/SummaryReports.html'>"+string+"</a></td>");
+			}else {
+				writer.write("<td><a href='" + projectDirectory + "\\Output\\Reports\\SummaryReports.html'>"+string+"</a></td>");
+			}
 			writer.write("<td>PASS</td>");
 			writer.write("</tr>");
 		}

@@ -48,7 +48,7 @@ public class GenerateTestScript extends BaseClass {
 				System.setProperty("webdriver.chrome.driver", props.get("ProjectDirectory")+"/macchromedriver");
 				}
 				else{
-				System.setProperty("webdriver.chrome.driver", props.get("ProjectDirectory")+"/winchromedriver");
+				System.setProperty("webdriver.chrome.driver", props.get("ProjectDirectory")+"\\winchromedriver.exe");
 				}
 				ChromeOptions opt = new ChromeOptions();
 				opt.addArguments("disable-infobars");
@@ -115,7 +115,13 @@ public class GenerateTestScript extends BaseClass {
 		try
 		{
 			String sheetName="Sheet1";
-			File testCaseFile = new File(session.getAttribute("modulePath")+"/GeneratedTestCases.xlsx");
+			File testCaseFile = null;
+			if(props.get("OS").equals("MacOS")){
+				testCaseFile = new File(session.getAttribute("modulePath")+"/GeneratedTestCases.xlsx");
+			}else {
+				testCaseFile = new File(session.getAttribute("modulePath")+"\\GeneratedTestCases.xlsx");
+			}
+			
 			inputStream = new FileInputStream(testCaseFile);
 			tcWorkbook = new XSSFWorkbook(inputStream);
 			Sheet tcOutsheet = tcWorkbook.getSheet(sheetName);

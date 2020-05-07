@@ -25,6 +25,7 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import com.cigniti.airlines.supportClasses.BusinessRulesSupport;
+import com.cigniti.airlines.utils.UtilitiesClass;
 
 
 @WebServlet("/businessRulesServlet")
@@ -111,7 +112,12 @@ public class BusinessRulesServlet extends HttpServlet {
 		tcWorkbook = new XSSFWorkbook();
 		BusinessRulesSupport brs=new BusinessRulesSupport();
 		String filePath=brs.getFilePath(session);
-		File testCaseFile = new File(filePath+"/BusinessRules.xlsx");
+		File testCaseFile = null;
+		if(UtilitiesClass.props.get("OS").equals("MacOS")){
+		testCaseFile = new File(filePath+"/BusinessRules.xlsx");
+		}else {
+			testCaseFile = new File(filePath+"\\BusinessRules.xlsx");
+		}
 		tcOutputStream = new FileOutputStream(testCaseFile);
 		Sheet tcOutsheet = tcWorkbook.createSheet(sheetName);
 		Row row=null;

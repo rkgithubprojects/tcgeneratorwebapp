@@ -94,7 +94,14 @@ public class GenerateTestCase extends BaseClass{
 		{
 			String sheetName="Sheet1";
 			tcWorkbook = new XSSFWorkbook();
-			File testCaseFile = new File(session.getAttribute("modulePath")+"/GeneratedTestCases.xlsx");
+			File testCaseFile=null;
+			if(props.get("OS").equals("MacOS")){
+			testCaseFile = new File(session.getAttribute("modulePath")+"/GeneratedTestCases.xlsx");
+			}
+			else{
+			testCaseFile = new File(session.getAttribute("modulePath")+"\\GeneratedTestCases.xlsx");
+			}
+			
 			tcOutputStream = new FileOutputStream(testCaseFile);
 		
 			Sheet tcOutsheet = tcWorkbook.createSheet(sheetName);
@@ -152,9 +159,14 @@ public class GenerateTestCase extends BaseClass{
 			tcCount++;
 			String path=(String) session.getAttribute("modulePath");
 			sheetName = "DemoTestCases";
-			createFolder(path+"/" + sheetName);
-			PrintWriter writer = new PrintWriter(path+"/" + sheetName + "/" + fileName + "_" + tcCount + ".txt", "UTF-8");
-
+			PrintWriter writer = null;
+			if(props.get("OS").equals("MacOS")){
+				createFolder(path+"/" + sheetName);
+				writer = new PrintWriter(path+"/" + sheetName + "/" + fileName + "_" + tcCount + ".txt", "UTF-8");
+			}else {
+				createFolder(path+"\\" + sheetName);
+				writer = new PrintWriter(path+"\\" + sheetName + "\\" + fileName + "_" + tcCount + ".txt", "UTF-8");
+			}
 			for (String step : tcSteps) {
 				writer.println(step);
 			}

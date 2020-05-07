@@ -96,8 +96,13 @@ public class StoreExcelData extends UtilitiesClass{
 		Map<String, TestData> sheetData=new HashMap<String, TestData>();
 
 		try {
+			if(props.get("OS").equals("MacOS")){
+				inputFile = new File(session.getAttribute("modulePath")+"/Scenarios.xlsx");
+			}
+			else {
+				inputFile = new File(session.getAttribute("modulePath")+"\\Scenarios.xlsx");
+			}
 			
-			inputFile = new File(session.getAttribute("modulePath")+"/Scenarios.xlsx");
 			inputStream = new FileInputStream(inputFile);
 			readWorBook = new XSSFWorkbook(inputStream);
 			Sheet readSheet=readWorBook.getSheet(sheetName);	

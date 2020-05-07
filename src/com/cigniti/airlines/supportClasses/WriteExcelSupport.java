@@ -30,8 +30,12 @@ public class WriteExcelSupport extends UtilitiesClass{
 			
 			String sheetName="Sheet1";
 			tcWorkbook = new XSSFWorkbook();
-			//File testCaseFile = new File("C:\\ABC\\Output\\TestDataFiles\\Scenarios.xlsx");
-			File testCaseFile = new File(session.getAttribute("modulePath")+"/Scenarios.xlsx");
+			File testCaseFile = null;
+			if(props.get("OS").equals("MacOS")){
+			testCaseFile = new File(session.getAttribute("modulePath")+"/Scenarios.xlsx");
+			}else {
+				testCaseFile = new File(session.getAttribute("modulePath")+"\\Scenarios.xlsx");
+			}
 			tcOutputStream = new FileOutputStream(testCaseFile);
 		
 			Sheet tcOutsheet = tcWorkbook.createSheet(sheetName);

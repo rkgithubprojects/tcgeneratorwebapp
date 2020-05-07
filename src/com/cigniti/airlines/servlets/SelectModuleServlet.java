@@ -25,8 +25,11 @@ public class SelectModuleServlet extends HttpServlet {
 			System.out.println("Select Module Servlet Executed");
 			
 			String moduleData=request.getParameter("moduleData");
+			System.out.println("moduleData>>>>>>" + moduleData);
 			moduleName=moduleData.split("##")[1];
+			System.out.println("moduleName>>>>>>" + moduleName);
 			String modulePath=moduleData.split("##")[0].replace("'\'", "'\\'");
+			System.out.println("modulePath>>>>>>" + modulePath);
 			String generateTC=request.getParameter("generateTC");
 			String generateTS=request.getParameter("generateTS");
 			String automation=request.getParameter("automation");

@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.cigniti.airlines.accelerators.Configuration;
 import com.cigniti.airlines.exe.CreateExcel;
 import com.cigniti.airlines.supportClasses.PropertiesSupport;
+import com.cigniti.airlines.utils.UtilitiesClass;
 
 /**
  * Servlet implementation class CreateModuleServlet
@@ -31,8 +32,11 @@ public class CreateModuleServlet extends HttpServlet {
 		String projectDirectory=config.getProjectDirectory();
 		String newModulePath=request.getParameter("modulePath");;
 		moduleName=request.getParameter("moduleName");
+		if(UtilitiesClass.props.get("OS").equals("MacOS")){
 		newModulePath=projectDirectory+"/"+newModulePath+"/"+moduleName;
-		
+		}else {
+			newModulePath=projectDirectory+"\\"+newModulePath+"\\"+moduleName;
+		}
 		File theDir = new File(newModulePath);
 
 		if (!theDir.exists()) {

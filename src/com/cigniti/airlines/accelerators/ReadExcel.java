@@ -77,8 +77,11 @@ public class ReadExcel extends BaseClass {
 			/*propData = getData();*/
 			ReadTestData rd = new ReadTestData();
 			reusableDataSteps = rd.readTestData(session);
-
-			inputFile = new File(session.getAttribute("modulePath")+"/Scenarios.xlsx");
+			if(props.get("OS").equals("MacOS")){
+				inputFile = new File(session.getAttribute("modulePath")+"/Scenarios.xlsx");
+				}else {
+				inputFile = new File(session.getAttribute("modulePath")+"\\Scenarios.xlsx");
+				}
 			inputStream = new FileInputStream(inputFile);
 			readWorBook = new XSSFWorkbook(inputStream);
 
@@ -87,7 +90,13 @@ public class ReadExcel extends BaseClass {
 			sheetsData = generateCombinations(readSheet);
 
 			/******************************/
-			File brInputFile = new File(session.getAttribute("modulePath")+"/BusinessRules.xlsx");
+			File brInputFile = null;
+			if(props.get("OS").equals("MacOS")){
+				brInputFile = new File(session.getAttribute("modulePath")+"/BusinessRules.xlsx");
+			}else {
+				brInputFile = new File(session.getAttribute("modulePath")+"\\BusinessRules.xlsx");
+			}
+			
 			InputStream brinputStream = new FileInputStream(brInputFile);
 			Workbook bRulesWB = new XSSFWorkbook(brinputStream);
 			Set<List<String>> businessRules = getBusinessRules(bRulesWB, "Sheet1");

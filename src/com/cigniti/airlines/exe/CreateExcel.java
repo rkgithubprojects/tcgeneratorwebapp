@@ -16,15 +16,20 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import com.cigniti.airlines.supportClasses.PropertiesSupport;
+import com.cigniti.airlines.utils.BaseClass;
 
-public class CreateExcel {
+public class CreateExcel extends BaseClass{
 	
 public void createVerificationSheet(String modulePath,String fileName,String sheetName)
 {
 	try
 	{
-		
-		String filePath=modulePath+"/"+fileName+".xlsx";
+		String filePath = null;
+		if(props.get("OS").equals("MacOS")){
+			filePath=modulePath+"/"+fileName+".xlsx";
+		}else {
+			filePath=modulePath+"\\"+fileName+".xlsx";
+		}
 		
 		//Create blank workbook
 	    XSSFWorkbook scenarioWB = new XSSFWorkbook(); 
@@ -67,8 +72,12 @@ public void createExcelSheet(String modulePath,String fileName,String sheetName)
 {
 	try
 	{
-		
-		String filePath=modulePath+"/"+fileName+".xlsx";
+		String filePath = null;
+		if(props.get("OS").equals("MacOS")){
+			filePath=modulePath+"/"+fileName+".xlsx";
+		}else {
+			filePath=modulePath+"\\"+fileName+".xlsx";
+		}
 		
 		//Create blank workbook
 	    XSSFWorkbook scenarioWB = new XSSFWorkbook(); 
@@ -112,7 +121,12 @@ public void createBrulesSheet(String modulePath,String fileName,String sheetName
 {
 	try
 	{
-		String filePath=modulePath+"/"+fileName+".xlsx";
+		String filePath = null;
+		if(props.get("OS").equals("MacOS")){
+			filePath=modulePath+"/"+fileName+".xlsx";
+		}else {
+			filePath=modulePath+"\\"+fileName+".xlsx";
+		}
 		
 		//Create blank workbook
 	    XSSFWorkbook scenarioWB = new XSSFWorkbook(); 
