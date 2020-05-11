@@ -25,6 +25,7 @@
           <target>1.8</target>
         </configuration>
       </plugin>
+      <!-- Plugin to create war-->
 				<plugin>
 				<artifactId>maven-war-plugin</artifactId>
 				<version>3.2.1</version>
@@ -32,9 +33,23 @@
 					<warSourceDirectory>${basedir}/WebContent/</warSourceDirectory>
 					<webXml>${basedir}/WebContent/WEB-INF/web.xml</webXml>
 					<warName>TCgenerator</warName>
-					<outputDirectory>${basedir}/target/</outputDirectory>
+					<!-- <outputDirectory>${basedir}/target/</outputDirectory> -->
+					<outputDirectory>/Users/ctl-user/Documents/BackupTestAccelerator/Tomcat/apache-tomcat-9.0.26/webapps</outputDirectory>
 				</configuration>
 			</plugin>
+			<!-- Configure the Tomcat Maven plugin 
+			<plugin>
+    <groupId>org.apache.tomcat.maven</groupId>
+    <artifactId>tomcat7-maven-plugin</artifactId>
+    <version>2.2</version>
+    <configuration>
+        <url>http://localhost:9090/manager/html</url>
+        <server>maven-tomcat-war-deployment-server</server>
+        <username>war-deployer</username>
+        <password>war-deployer</password>
+        <path>/</path>
+    </configuration>
+</plugin> -->
     </plugins>
   </build>
   	<dependencies>
@@ -51,12 +66,14 @@
 			<version>2.5</version>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/javax.servlet/jsp-api -->
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>jsp-api</artifactId>
-			<version>2.0</version>
-		</dependency>
+<!-- https://mvnrepository.com/artifact/javax.servlet/jsp-api -->
+<dependency>
+    <groupId>javax.servlet</groupId>
+    <artifactId>jsp-api</artifactId>
+    <version>2.0</version>
+    <scope>provided</scope>
+</dependency>
+
 
 
 		<!-- https://mvnrepository.com/artifact/org.apache.james/apache-mime4j -->
